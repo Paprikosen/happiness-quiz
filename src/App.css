@@ -5,6 +5,8 @@
   --red: #f03986;
   --green: #43dd65;
   --blue: #3c9bf2;
+  --beige: #FFF9E4;
+  box-sizing: border-box;
 }
 
 .canvas {
@@ -15,6 +17,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.game {
+  background-color: var(--beige);
 }
 
 .welcomeContainer {

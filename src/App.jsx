@@ -1,18 +1,21 @@
 import "./App.css";
 import React from "react";
 import StartScreen from "./components/StartScreen";
+import Game from "./components/Game";
 
 function App() {
-  const [gameRunning, setGameRunning] = React.useState(false);
+  const [gameRunning, setGameRunning] = React.useState(true);
 
   function handleClick() {
-    setGameRunning( prevState => !prevState)
+    setGameRunning((prevState) => !prevState);
   }
 
   return (
     <>
       {/* Startbildschirm zuerst */}
-      <div className="canvas">{!gameRunning && <StartScreen onClick={handleClick} />}</div>
+      
+        {!gameRunning ? <StartScreen onClick={handleClick} /> : <Game />}
+
     </>
   );
 }
