@@ -4,7 +4,7 @@ import StartScreen from "./components/StartScreen";
 import Game from "./components/Game";
 
 function App() {
-  const [gameRunning, setGameRunning] = React.useState(true);
+  const [gameRunning, setGameRunning] = React.useState(false);
 
   function handleClick() {
     setGameRunning((prevState) => !prevState);
@@ -13,9 +13,10 @@ function App() {
   return (
     <>
       {/* Startbildschirm zuerst */}
-      
+      <div className="canvas">
         {!gameRunning ? <StartScreen onClick={handleClick} /> : <Game />}
 
+      </div>
     </>
   );
 }

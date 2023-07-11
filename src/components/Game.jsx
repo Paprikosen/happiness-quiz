@@ -1,15 +1,19 @@
+import Question from "./Question"
+import React from "react"
+import { questions } from "../questions"
 import "./game.css"
 
 export default function Game() {
-    return (
-        <div className="canvas game">
-            <h2>Who was the 4th president of the USA?</h2>
 
-            <div className="questionContainer">
-                <button>A) James Madison</button>
-                <button style={{backgroundColor: "#43dd65"}}>B) James Madison</button>
-                <button style={{backgroundColor: "#ffd600"}}>C) James Madison</button>
-                <button style={{backgroundColor: "#3c9bf2"}}>D) James Madison</button>
+    const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = React.useState()
+
+    console.log(hasAnsweredCorrectly)
+
+    return (
+        <div className="canvas" style={{backgroundColor: "#FFF9E4"}}>
+            <div className="game">
+                {hasAnsweredCorrectly ? <h1>This is correct!</h1> : <h1>This is false</h1>}
+                <Question setHasAnsweredCorrectly={setHasAnsweredCorrectly} questionObject={questions[0]}/>
             </div>
         </div>
     )

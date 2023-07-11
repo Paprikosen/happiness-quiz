@@ -1,5 +1,5 @@
 #root {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   --yellow: #ffd600;
   --red: #f03986;
@@ -7,6 +7,10 @@
   --blue: #3c9bf2;
   --beige: #FFF9E4;
   box-sizing: border-box;
+}
+
+body {
+  margin: 0
 }
 
 .canvas {
@@ -19,9 +23,6 @@
   flex-direction: column;
 }
 
-.game {
-  background-color: var(--beige);
-}
 
 .welcomeContainer {
   display: flex;
@@ -40,7 +41,7 @@ h1 {
   color: #000;
   text-align: center;
   font-family: Poppins, sans-serif;
-  font-size: 6rem;
+  font-size: 3rem;
   font-style: normal;
   font-weight: 300;
   line-height: 116%;
