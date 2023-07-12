@@ -5,12 +5,12 @@ import "./game.css"
 import AnswerExplanation from "./AnswerExplanation"
 
 export default function Game(props) {
-    const { setGameOver } = props
+    const { setGameOver, points, setPoints, questionNumber, setQuestionNumber } = props
 
     const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = React.useState()
     const [hasAnswered, setHasAnswered] = React.useState(false)
-    const [questionNumber, setQuestionNumber] = React.useState(0)
-    const [points, setPoints] = React.useState(0)
+    
+    
 
     function nextQuestion() {
         setQuestionNumber( prevNumber => prevNumber + 1)

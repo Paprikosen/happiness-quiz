@@ -7,9 +7,18 @@ import EndScreen from "./components/EndScreen";
 function App() {
   const [gameRunning, setGameRunning] = React.useState(false);
   const [gameOver, setGameOver] = React.useState(false);
+  const [points, setPoints] = React.useState(0)
+  const [questionNumber, setQuestionNumber] = React.useState(0)
 
   function handleClick() {
     setGameRunning((prevState) => !prevState);
+  }
+
+  function newGame() {
+    setGameRunning(false)
+    setQuestionNumber(0)
+    setPoints(0)
+    setGameOver(false)
   }
 
   let screen = "";
@@ -18,11 +27,10 @@ function App() {
     screen = <StartScreen onClick={handleClick} />;
   } else {
     if (!gameOver) {
-      screen = <Game setGameOver={setGameOver}/>
+      screen = <Game questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} setGameOver={setGameOver} points={points} setPoints={setPoints}/>
     } else {
-      screen = <EndScreen />
+      screen = <EndScreen points={points} newGame={newGame}/>
     }
-     ;
   }
 
   return (
