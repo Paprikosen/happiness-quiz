@@ -2,21 +2,33 @@ import "./App.css";
 import React from "react";
 import StartScreen from "./components/StartScreen";
 import Game from "./components/Game";
+import EndScreen from "./components/EndScreen";
 
 function App() {
   const [gameRunning, setGameRunning] = React.useState(false);
+  const [gameOver, setGameOver] = React.useState(false);
 
   function handleClick() {
     setGameRunning((prevState) => !prevState);
   }
 
+  let screen = "";
+
+  if (!gameRunning) {
+    screen = <StartScreen onClick={handleClick} />;
+  } else {
+    if (!gameOver) {
+      screen = <Game setGameOver={setGameOver}/>
+    } else {
+      screen = <EndScreen />
+    }
+     ;
+  }
+
   return (
     <>
       {/* Startbildschirm zuerst */}
-      <div className="canvas">
-        {!gameRunning ? <StartScreen onClick={handleClick} /> : <Game />}
-
-      </div>
+      <div className="canvas">{screen}</div>
     </>
   );
 }

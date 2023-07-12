@@ -4,7 +4,8 @@ import { questions } from "../questions"
 import "./game.css"
 import AnswerExplanation from "./AnswerExplanation"
 
-export default function Game() {
+export default function Game(props) {
+    const { setGameOver } = props
 
     const [hasAnsweredCorrectly, setHasAnsweredCorrectly] = React.useState()
     const [hasAnswered, setHasAnswered] = React.useState(false)
@@ -15,11 +16,15 @@ export default function Game() {
         setQuestionNumber( prevNumber => prevNumber + 1)
         setHasAnswered(false)
     }
+
+    function endGame() {
+        setGameOver(() => true)
+    }
  
 
     return (
         <div className="canvas" style={{backgroundColor: "#FFF9E4"}}>
-            {hasAnswered && <AnswerExplanation hasAnsweredCorrectly={hasAnsweredCorrectly} nextQuestion={nextQuestion} questionObject={questions[questionNumber]} /> }
+            {hasAnswered && <AnswerExplanation hasAnsweredCorrectly={hasAnsweredCorrectly} nextQuestion={nextQuestion} questionObject={questions[questionNumber]} questionNumber={questionNumber} endGame={endGame} /> }
             <div className="game">
                 <div className="scoreContainer">
                     <p>Punkte: {points}</p>
