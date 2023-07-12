@@ -2,11 +2,16 @@ import "./game.css"
 
 export default function Question(props) {
 
-    const { questionObject, setHasAnsweredCorrectly, setHasAnswered, hasAnswered } = props
+    const { questionObject, setHasAnsweredCorrectly, setHasAnswered, hasAnswered, setPoints } = props
     const { question } = questionObject
 
   function checkAnswer(correct) {
-    correct ? setHasAnsweredCorrectly( () => true ) : setHasAnsweredCorrectly( () => false )
+    if (correct) {
+      setHasAnsweredCorrectly( () => true )
+      setPoints( (prevPoints) => prevPoints + 1)
+    }  else {
+      setHasAnsweredCorrectly( () => false )
+    }
     setHasAnswered( () => true)
   }
 

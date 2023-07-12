@@ -1,6 +1,7 @@
 const questions = [
   {
     question: "What means happiness?",
+    explanation: "The explanation sounds like this",
     possibleAnswers: [
       { answer: "I do not know", correct: false },
       { answer: "Hate", correct: false },

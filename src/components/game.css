@@ -13,6 +13,13 @@ h2 {
   text-align: left;
 }
 
+.scoreContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 2px solid black;
+}
+
 .questionContainer {
   display: flex;
   flex-direction: column;
@@ -49,19 +56,24 @@ button:active {
 .explanationContainer {
   position: absolute;
   display: flex;
+  height: 60vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px 40px;
-  max-height: 300px;
   background-color: white;
-  top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
-  margin: 20px;
+  margin: 0 20px;
   border: 3px solid #571530;
+  z-index: 1;
 
   box-shadow: 5px 5px 0px black;
   border-radius: 16px;
+}
+
+.explanationContainer p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 50px;
 }
